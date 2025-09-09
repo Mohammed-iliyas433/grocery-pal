@@ -99,6 +99,27 @@ export const mockProducts: Product[] = [
     category: 'fruit',
     isHealthy: true,
   },
+  {
+    id: 'bread',
+    name: 'Wholemeal Bread',
+    price: 1.85,
+    image: '/placeholder-bread.jpg',
+    category: 'bakery',
+  },
+  {
+    id: 'butter',
+    name: 'Organic Butter 250g',
+    price: 2.45,
+    image: '/placeholder-butter.jpg',
+    category: 'dairy',
+  },
+  {
+    id: 'strawberry-jam',
+    name: 'Strawberry Jam 340g',
+    price: 2.15,
+    image: '/placeholder-jam.jpg',
+    category: 'condiments',
+  },
 ];
 
 // Health & Fitness profile preferences

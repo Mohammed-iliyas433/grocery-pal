@@ -1,14 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User, ShoppingCart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import ProductGrid from '@/components/ProductGrid';
 import MiniBasket from '@/components/MiniBasket';
 import NudgeCard from '@/components/NudgeCard';
 import AllergyAlert from '@/components/AllergyAlert';
 import RecommendationList from '@/components/RecommendationList';
-import { healthFitnessProfile } from '@/data/mockProducts';
+import { useUser } from '@/context/UserContext';
 
 const Shop: React.FC = () => {
+  const navigate = useNavigate();
+  const { user } = useUser();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Top Bar */}
@@ -29,16 +34,20 @@ const Shop: React.FC = () => {
             </div>
           </div>
 
-          {/* Profile Avatar */}
-          <div className="flex items-center gap-3">
+          {/* Profile Button */}
+          <Button
+            variant="ghost"
+            onClick={() => navigate('/profile')}
+            className="flex items-center gap-3 p-2 hover:bg-accent rounded-xl"
+          >
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">{healthFitnessProfile.name}</p>
-              <p className="text-xs text-muted-foreground">High-protein, low-sugar</p>
+              <p className="text-sm font-semibold text-foreground">{user?.name || 'User'}</p>
+              <p className="text-xs text-muted-foreground">{user?.profileType || 'Health & Fitness'}</p>
             </div>
             <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
-              <span className="text-lg">{healthFitnessProfile.avatar}</span>
+              <User className="w-5 h-5 text-primary-foreground" />
             </div>
-          </div>
+          </Button>
         </div>
       </motion.header>
 

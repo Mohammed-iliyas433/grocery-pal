@@ -261,6 +261,26 @@ function generateNudgeRecommendation(product: Product, basketItems: BasketItem[]
 function generateRecommendations(product: Product, basketItems: BasketItem[]): Product[] {
   const recommendations: Product[] = [];
 
+  // Bread → Suggest Butter and Jam
+  if (product.name.toLowerCase().includes('bread')) {
+    recommendations.push(
+      {
+        id: 'butter',
+        name: 'Organic Butter 250g',
+        price: 2.45,
+        image: '/placeholder-butter.jpg',
+        category: 'dairy',
+      },
+      {
+        id: 'strawberry-jam',
+        name: 'Strawberry Jam 340g',
+        price: 2.15,
+        image: '/placeholder-jam.jpg',
+        category: 'condiments',
+      }
+    );
+  }
+
   // Pasta → Suggest Tomato Pasta Sauce
   if (product.name.toLowerCase().includes('pasta')) {
     recommendations.push({
