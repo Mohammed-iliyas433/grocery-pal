@@ -140,7 +140,7 @@ Mobile-first orange/white theme with smooth animations
   }
 
   .recommendation-item {
-    @apply flex-shrink-0 scroll-snap-align-start;
+    @apply flex-shrink-0 snap-start;
   }
 
   /* Hide scrollbar */
